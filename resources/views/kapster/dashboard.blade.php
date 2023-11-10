@@ -1,0 +1,47 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="slider-area2" style="height: 150px;"></div>
+<!-- Akhir Hero -->
+<!-- Tim Start -->
+<div class="team-area pb-50 pt-50">
+    <div class="container">
+        <h1>Daftar Booking Hari Ini</h1>
+        <!-- Filter untuk mengatur tanggal -->
+        <form method="GET" action="{{ route('kapster.dashboard') }}" class="mb-4">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="date" name="tanggal" id="tanggal" class="form-control form-control-lg"
+                        value="{{ $tanggal }}" onchange="this.form.submit()">
+                </div>
+            </div>
+        </form>
+
+        @if($kapsterBookings->count() > 0)
+        <div class="row">
+            @foreach ($kapsterBookings as $booking)
+            <div class="col-lg-4 col-md-6 col-sm-12 mt-30">
+                <div class="card booking-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Customer: {{ $booking->customer->user->name }}</h5>
+                        <p class="card-text">Tanggal Booking: {{ $booking->booking_date }}</p>
+                        <p class="card-text">Waktu Booking: {{ $booking->booking_time }} - {{ $booking->end_time }}</p>
+                        <p class="card-text">
+                            Status: <span
+                                class="badge {{ $booking->status === 'Antri' ? 'badge-primary' : 'badge-secondary' }}">{{
+                                $booking->status }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+
+        <!-- Tampilkan tombol pagination -->
+        {{ $kapsterBookings->links() }}
+        @else
+        <p>Tidak ada booking yang tersedia untuk tanggal ini.</p>
+        @endif
+    </div>
+</div>
+@endsection
