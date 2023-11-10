@@ -245,7 +245,7 @@ class BookingController extends Controller
             return redirect()->route('tampilkan-pesan-kesalahan');
         }
 
-        $bookings = $customer->bookings;
+        $bookings = $customer->bookings()->latest()->get();
         return view('history', ['bookings' => $bookings]);
     }
 }
