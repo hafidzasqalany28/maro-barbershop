@@ -120,7 +120,7 @@ class BookingController extends Controller
         Config::$isSanitized = config('midtrans.isSanitized');
         Config::$is3ds = config('midtrans.is3ds');
 
-        $orderId = 'SO-' . $booking->id;
+        $orderId = 'testong-' . $booking->id;
         $amount = $booking->service->price;
         $customer = $booking->customer;
         $kapster = $booking->kapster;
@@ -178,6 +178,7 @@ class BookingController extends Controller
         }
 
         return response('OK', 200);
+        return redirect()->route('home')->with('success', 'Pembayaran berhasil. Silakan pilih layanan kembali.');
     }
 
     private function getAvailableSlots($kapster)
