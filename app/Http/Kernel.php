@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\KapsterMiddleware;
 use App\Http\Middleware\CustomerMiddleware;
+use App\Http\Middleware\UpgradeToHttpsUnderNgrok;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -39,6 +40,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            UpgradeToHttpsUnderNgrok::class,
         ],
 
         'api' => [

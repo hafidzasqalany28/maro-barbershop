@@ -19,7 +19,7 @@ class CustomerSeeder extends Seeder
             [
                 'name' => 'Customer1',
                 'phone' => '1234567890',
-                'email' => 'customer1@example.com',
+                'email' => 'oneokr33@gmail.com',
                 'user_id' => $customer1User->id,
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -27,7 +27,7 @@ class CustomerSeeder extends Seeder
             [
                 'name' => 'Customer2',
                 'phone' => '1234567890',
-                'email' => 'customer2@example.com',
+                'email' => 'hafidzasqalany28@gmail.com',
                 'user_id' => $customer2User->id,
                 'created_at' => now(),
                 'updated_at' => now(),

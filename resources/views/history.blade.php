@@ -17,44 +17,30 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
-                @if ($bookings->count() > 0)
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Tanggal Booking</th>
-                            <th>Layanan</th>
-                            <th>Kapster</th>
-                            <th>Jam Mulai</th>
-                            <th>Jam Selesai</th>
-                            <th>Harga</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($bookings as $index => $booking)
-                        <tr>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $booking->booking_date }}</td>
-                            <td>{{ $booking->service->name }}</td>
-                            <td>{{ $booking->kapster->name }}</td>
-                            <td>{{ $booking->booking_time }}</td>
-                            <td>{{ $booking->end_time }}</td>
-                            <td>Rp {{ number_format($booking->service->price, 0, ',', '.') }}</td>
-                            <td>{{ $booking->status }}</td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="8">Tidak ada riwayat booking.</td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-                @else
-                <p>Tidak ada riwayat booking.</p>
-                @endif
+            @forelse ($bookings as $index => $booking)
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Booking No: {{ $index + 1 }}</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Tanggal Booking:</strong> {{ $booking->booking_date }}
+                            </li>
+                            <li class="list-group-item"><strong>Layanan:</strong> {{ $booking->service->name }}</li>
+                            <li class="list-group-item"><strong>Kapster:</strong> {{ $booking->kapster->name }}</li>
+                            <li class="list-group-item"><strong>Jam Mulai:</strong> {{ $booking->booking_time }}</li>
+                            <li class="list-group-item"><strong>Jam Selesai:</strong> {{ $booking->end_time }}</li>
+                            <li class="list-group-item"><strong>Harga:</strong> Rp {{
+                                number_format($booking->service->price, 0, ',', '.') }}</li>
+                            <li class="list-group-item"><strong>Status:</strong> {{ $booking->status }}</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            @empty
+            <div class="col-md-12">
+                <p class="text-center">Tidak ada riwayat booking.</p>
+            </div>
+            @endforelse
         </div>
     </div>
 </section>

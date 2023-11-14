@@ -14,37 +14,39 @@
         <div class="row">
             <div class="col-12">
                 @if (!empty($availableDates))
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Tanggal</th>
-                            <th>Slot Waktu Tersedia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($availableDates as $date)
-                        <tr>
-                            <td>{{ date('Y-m-d', strtotime($date)) }}</td>
-                            <td>
-                                @if (!empty($availableSlotsByDate[$date]))
-                                <div class="schedule-slot-list">
-                                    @foreach ($availableSlotsByDate[$date] as $slot)
-                                    <a href="{{ route('booking-details', ['date' => $date, 'time' => $slot['waktu']]) }}"
-                                        class="genric-btn primary-border custom-link">
-                                        {{ $slot['waktu'] }}
-                                    </a>
-                                    @endforeach
-                                </div>
-                                @else
-                                <p>Tidak ada slot waktu tersedia untuk tanggal ini.</p>
-                                @endif
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Tanggal</th>
+                                <th scope="col">Slot Waktu Tersedia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($availableDates as $date)
+                            <tr>
+                                <td style="vertical-align: middle;">{{ date('Y-m-d', strtotime($date)) }}</td>
+                                <td>
+                                    @if (!empty($availableSlotsByDate[$date]))
+                                    <div class="schedule-slot-list">
+                                        @foreach ($availableSlotsByDate[$date] as $slot)
+                                        <a href="{{ route('booking-details', ['date' => $date, 'time' => $slot['waktu']]) }}"
+                                            class="genric-btn primary-border custom-link">
+                                            {{ $slot['waktu'] }}
+                                        </a>
+                                        @endforeach
+                                    </div>
+                                    @else
+                                    <p class="text-center">Tidak ada slot waktu tersedia untuk tanggal ini.</p>
+                                    @endif
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
                 @else
-                <p>Tidak ada tanggal yang tersedia.</p>
+                <p class="text-center">Tidak ada tanggal yang tersedia.</p>
                 @endif
             </div>
         </div>

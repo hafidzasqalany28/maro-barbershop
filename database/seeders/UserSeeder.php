@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Customer1',
-                'email' => 'customer1@example.com',
+                'email' => 'oneokr33@gmail.com',
                 'password' => Hash::make('12345678'),
                 'role_id' => 2, // Sesuaikan dengan ID peran customer
                 'created_at' => now(),
@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'name' => 'Customer2',
-                'email' => 'customer2@example.com',
+                'email' => 'hafidzasqalany28@gmail.com',
                 'password' => Hash::make('12345678'),
                 'role_id' => 2, // Sesuaikan dengan ID peran customer
                 'created_at' => now(),

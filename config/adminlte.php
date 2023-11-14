@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Maro-Barbershop',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Maro</b>-Barbershop',
+    'logo_img' => 'vendor/adminlte/dist/img/logofix.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -253,7 +253,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -313,24 +313,14 @@ return [
             'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text' => 'Services',
-            'url' => 'admin/services',
-            'icon' => 'fas fa-fw fa-cut',
-        ],
-        [
             'text' => 'Customers',
             'url' => 'admin/customers',
             'icon' => 'fas fa-fw fa-users',
         ],
         [
-            'text' => 'Reports',
-            'url' => 'admin/reports',
-            'icon' => 'far fa-fw fa-chart-bar',
-        ],
-        [
-            'text' => 'Settings',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-cog',
+            'text' => 'Services',
+            'url' => 'admin/services',
+            'icon' => 'fas fa-fw fa-cut',
         ],
         // ...
     ],

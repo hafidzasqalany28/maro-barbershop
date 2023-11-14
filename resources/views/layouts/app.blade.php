@@ -59,15 +59,18 @@
                                                     href="/services">Services</a></li>
                                             <li @if(Request::is('about')) class="active" @endif><a href="/about">Tentang
                                                     Kami</a></li>
+                                            @guest
                                             <li @if(Request::is('select-service')) class="active" @endif><a
                                                     href="{{ route('select-service') }}">Booking</a></li>
-                                            @guest
-                                            <div class="header-right-btn f-right d-none d-lg-block ml-30 mt-4">
-                                                <li>
-                                                    <a href="{{ route('login') }}" class="btn header-btn">Login</a>
-                                                </li>
-                                            </div>
+                                            <li class="header-right-btn f-right d-none d-lg-block ml-30 mt-4">
+                                                <a href="{{ route('login') }}"
+                                                    class="btn btn-primary btn-lg gradient-custom-2 mb-4 btn-block text-center">Login</a>
+                                            </li>
                                             @else
+                                            @if(auth()->user()->role_id == 2)
+                                            <!-- Tampilkan semua menu jika role_id adalah 2 -->
+                                            <li @if(Request::is('select-service')) class="active" @endif><a
+                                                    href="{{ route('select-service') }}">Booking</a></li>
                                             <li>
                                                 <a href="#"><span class="ti-user"></span> {{ auth()->user()->name }}</a>
                                                 <ul class="submenu">
@@ -78,6 +81,17 @@
                                                     </li>
                                                 </ul>
                                             </li>
+                                            @elseif(auth()->user()->role_id == 3)
+                                            <!-- Hanya tampilkan menu profil dan logout jika role_id adalah 3 -->
+                                            <li>
+                                                <a href="#"><span class="ti-user"></span> {{ auth()->user()->name }}</a>
+                                                <ul class="submenu">
+                                                    <li><a href="{{ route('logout') }}"
+                                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            @endif
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                 style="display: none;">
                                                 @csrf
@@ -85,6 +99,7 @@
                                             @endguest
                                         </ul>
                                     </nav>
+
                                 </div>
 
                             </div>

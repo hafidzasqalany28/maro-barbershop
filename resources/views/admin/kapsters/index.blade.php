@@ -13,7 +13,7 @@
             <div class="card-header">
                 <h3 class="card-title">Daftar Kapster</h3>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <a href="{{ route('kapsters.create') }}" class="btn btn-primary">Tambah Kapster Baru</a>
                 <table class="table table-bordered">
                     <thead>
@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($kapsters as $kapster)
+                        @forelse($kapsters as $kapster)
                         <tr>
                             <td>{{ $kapster->id }}</td>
                             <td>{{ $kapster->name }}</td>
@@ -45,7 +45,11 @@
                                 </form>
                             </td>
                         </tr>
-                        @endforeach
+                        @empty
+                        <tr>
+                            <td colspan="4">Tidak ada data Kapster.</td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

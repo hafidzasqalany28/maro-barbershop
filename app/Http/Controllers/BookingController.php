@@ -120,7 +120,7 @@ class BookingController extends Controller
         Config::$isSanitized = config('midtrans.isSanitized');
         Config::$is3ds = config('midtrans.is3ds');
 
-        $orderId = 'testong-' . $booking->id;
+        $orderId = 'bookbook-' . $booking->id;
         $amount = $booking->service->price;
         $customer = $booking->customer;
         $kapster = $booking->kapster;
@@ -245,7 +245,7 @@ class BookingController extends Controller
             return redirect()->route('tampilkan-pesan-kesalahan');
         }
 
-        $bookings = $customer->bookings()->latest()->get();
+        $bookings = $customer->bookings()->latest()->get()->reverse();
         return view('history', ['bookings' => $bookings]);
     }
 }

@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="slider-area2" style="height: 150px;"></div>
-<div class="team-area pb-180">
+<div class="team-area pb-5 pt-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-8 col-md-11 col-sm-11">
-                <div class="section-tittle text-center mb-100">
+                <div class="section-tittle text-center mb-50 mt-30">
                     <h2>Pilih Kapster</h2>
                 </div>
             </div>

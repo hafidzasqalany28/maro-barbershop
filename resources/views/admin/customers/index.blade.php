@@ -11,7 +11,7 @@
     <div class="card-header">
         <h3 class="card-title">Pelanggan</h3>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
         <a href="{{ route('customers.create') }}" class="btn btn-primary">Tambah Pelanggan Baru</a>
         <table class="table">
             <thead>
