@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Service;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ServiceSeeder extends Seeder
 {
@@ -14,16 +12,15 @@ class ServiceSeeder extends Seeder
         $services = [
             [
                 'name' => 'Haircut',
-                'description' => 'Standard haircut service',
+                'description' => 'Layanan potong rambut standar',
                 'price' => 60000,
                 'duration' => 30,
                 'created_at' => now(),
                 'updated_at' => now(),
-
             ],
             [
                 'name' => 'Peek a Boo',
-                'description' => 'Hidden color highlights',
+                'description' => 'Tata rambut dengan sorotan warna tersembunyi',
                 'price' => 200000,
                 'duration' => 120,
                 'created_at' => now(),
@@ -31,7 +28,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'name' => 'Hairlight',
-                'description' => 'Lightening sections of hair',
+                'description' => 'Mencerahkan sebagian rambut',
                 'price' => 250000,
                 'duration' => 180,
                 'created_at' => now(),
@@ -39,7 +36,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'name' => 'Balayage',
-                'description' => 'Freehand hair painting',
+                'description' => 'Lukis rambut bebas',
                 'price' => 450000,
                 'duration' => 240,
                 'created_at' => now(),
@@ -47,7 +44,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'name' => 'Basic Colour',
-                'description' => 'Single color application',
+                'description' => 'Aplikasi warna rambut tunggal',
                 'price' => 100000,
                 'duration' => 60,
                 'created_at' => now(),
@@ -55,7 +52,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'name' => 'K-Perm',
-                'description' => 'Korean-style perm',
+                'description' => 'Curly rambut ala Korea',
                 'price' => 250000,
                 'duration' => 120,
                 'created_at' => now(),
@@ -63,7 +60,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'name' => 'Down-Perm',
-                'description' => 'Straight hair perm',
+                'description' => 'Curly rambut lurus',
                 'price' => 150000,
                 'duration' => 120,
                 'created_at' => now(),
@@ -71,7 +68,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'name' => 'K-Smoothing',
-                'description' => 'Keratin smoothing treatment',
+                'description' => 'Perawatan pelurusan rambut Keratin',
                 'price' => 300000,
                 'duration' => 120,
                 'created_at' => now(),
@@ -79,7 +76,7 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'name' => 'Aromatic Creambath',
-                'description' => 'Relaxing aromatic creambath',
+                'description' => 'Perawatan creambath aromatik yang menyegarkan',
                 'price' => 150000,
                 'duration' => 120,
                 'created_at' => now(),

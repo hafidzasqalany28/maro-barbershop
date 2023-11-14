@@ -21,6 +21,8 @@ class BookingReminder extends Notification
 
     public function toMail($notifiable)
     {
+        $ngrokUrl = env('NGROK_URL', 'https://your-default-url.com');
+
         return (new MailMessage)
             ->line('Reminder for your upcoming booking.')
             ->line('Booking Details:')
@@ -28,9 +30,10 @@ class BookingReminder extends Notification
             ->line('Kapster: ' . $this->booking->kapster->name)
             ->line('Date: ' . $this->booking->booking_date)
             ->line('Time: ' . $this->booking->booking_time)
-            ->action('View Booking', url('/booking/history' . $this->booking->id))
+            ->action('View Booking', url($ngrokUrl . '/booking/history/'))
             ->line('Thank you for using our booking system!');
     }
+
 
     public function via($notifiable)
     {
