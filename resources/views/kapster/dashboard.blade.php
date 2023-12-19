@@ -29,18 +29,26 @@
                         <p class="card-text"><strong>Waktu Booking:</strong> {{ $booking->booking_time }} - {{
                             $booking->end_time }}</p>
                         <p class="card-text"><strong>Layanan:</strong> {{ $booking->service->name }}</p>
-                        <p class="card-text">
-                            <strong>Status:</strong>
-                            <span
-                                class="badge {{ $booking->status === 'Antri' ? 'badge-primary' : 'badge-secondary' }}">
-                                {{ $booking->status }}
-                            </span>
-                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="card-text">
+                                <strong>Status:</strong>
+                                <span
+                                    class="badge {{ $booking->status === 'Antri' ? 'badge-primary' : 'badge-secondary' }}">
+                                    {{ $booking->status }}
+                                </span>
+                            </p>
+                            <form method="POST" action="{{ route('kapster.updateStatus', $booking->id) }}" class="mt-3">
+                                @csrf
+                                @method('PATCH')
+                                <button type="submit" class="btn btn-success">Selesai</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
             @endforeach
         </div>
+
 
         <!-- Tampilkan tombol pagination -->
         <div class="mt-4">

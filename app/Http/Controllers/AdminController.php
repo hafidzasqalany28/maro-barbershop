@@ -20,7 +20,7 @@ class AdminController extends Controller
 
         // Mengambil data pemesanan yang akan datang (upcoming bookings) dan data pemesanan yang telah diselesaikan (completed bookings)
         $upcomingBookings = Booking::whereDate('booking_date', '>', now())->get();
-        $completedBookings = Booking::where('status', 'antri')->get();
+        $completedBookings = Booking::whereIn('status', ['antri', 'selesai'])->get();
 
         // Mengambil data pemesanan yang dibatalkan (pending payment bookings) dan data pemesanan yang belum dibayar
         $pendingPaymentBookings = Booking::where('status', 'pending')->get();

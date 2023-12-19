@@ -62,9 +62,11 @@
                                             @guest
                                             <li @if(Request::is('select-service')) class="active" @endif><a
                                                     href="{{ route('select-service') }}">Booking</a></li>
-                                            <li class="header-right-btn f-right d-none d-lg-block ml-30 mt-4">
-                                                <a href="{{ route('login') }}"
-                                                    class="btn btn-primary btn-lg gradient-custom-2 mb-4 btn-block text-center">Login</a>
+                                            <li class="nav-item @if(Request::is('login')) active @endif">
+                                                <button type="button"
+                                                    class="btn btn-primary btn-lg gradient-custom-2 nav-link"
+                                                    style="margin-left: 10px;"
+                                                    onclick="window.location='{{ route('login') }}'">Login</button>
                                             </li>
                                             @else
                                             @if(auth()->user()->role_id == 2)

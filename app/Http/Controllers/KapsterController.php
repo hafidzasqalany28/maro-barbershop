@@ -28,4 +28,19 @@ class KapsterController extends Controller
 
         return view('kapster.dashboard', compact('kapsterBookings', 'tanggal'));
     }
+    public function updateStatus($bookingId)
+    {
+        $booking = Booking::findOrFail($bookingId);
+
+        // Periksa apakah kapster yang sedang login memiliki hak akses terhadap booking
+        if ($booking->kapster_id != Auth::user()->kapster->id) {
+            return abort(403, 'Unauthorized action.');
+        }
+
+        // Ubah status menjadi "Selesai"
+        $booking->status = 'Selesai';
+        $booking->save();
+
+        return redirect()->route('kapster.dashboard')->with('success', 'Status booking berhasil diubah menjadi Selesai.');
+    }
 }

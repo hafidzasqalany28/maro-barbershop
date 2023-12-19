@@ -55,5 +55,6 @@ Route::middleware(['auth'])->group(function () {
     // Rute yang hanya bisa diakses oleh akun role_id 3 (kapster)
     Route::group(['middleware' => 'kapster'], function () {
         Route::get('/kapster/dashboard', [KapsterController::class, 'index'])->name('kapster.dashboard');
+        Route::patch('/kapster/update-status/{bookingId}', [KapsterController::class, 'updateStatus'])->name('kapster.updateStatus');
     });
 });
